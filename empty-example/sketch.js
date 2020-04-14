@@ -12,7 +12,11 @@ function setup() {
 function draw() {
   // put drawing code here
   background(0);
-  y = y - 1;
+  y = y - 4;
   if (y < 0) { y = height; }
   line(0, y, width, y);
+}
+
+function mousePressed() {
+  redraw();
 }
