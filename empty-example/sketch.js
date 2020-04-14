@@ -1,20 +1,18 @@
+var y = 100;
+
 function setup() {
   // put setup code here
   createCanvas(720, 400);
+  stroke(255);
+  frameRate(30);
 }
 
 function draw() {
   // put drawing code here
   background(0);
-  noFill();
-
-  stroke(255);
-  point(width*0.5, height*0.5);
-  point(width*0.25, height*0.25);
-
-  stroke(0, 153, 255);
-  line(0, height*0.33, width, height*0.33);
-
-  stroke(255, 153, 0);
-  rect(width*0.25, height*0.1, width*0.5, height*0.8);
+  y = y - 1;
+  if (y < 0) {
+    y = height;
+  }
+  line(0, y, width, y);
 }
