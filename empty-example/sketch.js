@@ -1,20 +1,21 @@
+var pg;
+
 function setup() {
-  createCanvas(720, 400);
-  noStroke();
-  noLoop();
+  createCanvas(710, 400);
+  pg = createGraphics(400, 250);
 }
 
 function draw() {
-  drawCircle(width/2, 280, 6);
-}
+  fill(0, 50);
+  rect(0, 0, width, height);
+  fill(255);
+  noStroke();
+  ellipse(mouseX, mouseY, 60, 60);
 
-function drawCircle(x, radius, level) {
-  var tt = 126 * level/4.0;
-  fill(tt);
-  ellipse(x, height/2, radius*2, radius*2);
-  if (level > 1) {
-    level -= 1;
-    drawCircle(x - radius/2, radius/2, level);
-    drawCircle(x + radius/2, radius/2, level);
-  }
+  pg.background(51);
+  pg.noFill();
+  pg.stroke(255);
+  pg.ellipse(mouseX-150, mouseY-75, 60, 60);
+
+  image(pg, 150, 75);
 }
