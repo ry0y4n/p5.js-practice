@@ -1,22 +1,21 @@
-var y;
-
 function setup() {
-  // put setup code here
   createCanvas(720, 400);
-  stroke(255);
+  background(51);
+  noStroke();
   noLoop();
-
-  y = height * 0.5;
 }
 
 function draw() {
-  // put drawing code here
-  background(0);
-  y = y - 4;
-  if (y < 0) { y = height; }
-  line(0, y, width, y);
+  drawTarget(width*0.25, height*0.4, 200, 4);
+  drawTarget(width*0.5, height*0.5, 300, 10);
+  drawTarget(width*0.75, height*0.3, 120, 6);
 }
 
-function mousePressed() {
-  redraw();
+function drawTarget(xloc, yloc, size, num) {
+  var grayvalues = 255 / num;
+  var steps = size / num;
+  for (var i=0; i<num; i++) {
+    fill(i * grayvalues);
+    ellipse(xloc, yloc, size-i*steps, size-i*steps);
+  }
 }
